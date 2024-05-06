@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let emojis = ["👨🏻‍🦱", "⚙️", "😍", "🧠", "🛠️", "👨🏻‍🦱", "⚙️", "😍", "🧠", "🛠️", "👨🏻‍🦱", "⚙️", "😍", "🧠", "🛠️", "👨🏻‍🦱", "⚙️", "😍", "🧠", "🛠️"]
+    
+    @State var cardCount = 4
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ScrollView {
+                CardsView(emojis: emojis, cardCount: $cardCount)
+            }
+            Spacer()
+            CardsCountAjustersView(
+                disableAdd: cardCount == emojis.count,
+                disableRemove: cardCount == 0,
+                cardCount: $cardCount
+            )
         }
         .padding()
     }
