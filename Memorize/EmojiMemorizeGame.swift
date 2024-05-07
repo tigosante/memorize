@@ -23,7 +23,7 @@ class EmojiMemorizeGame: ObservableObject {
     }
     
     func chooseCard(_ card: MemorizeGame<String>.Card) {
-        model.choose(card: card)
+        model.choose(card)
     }
     
     // MARK: - Intents

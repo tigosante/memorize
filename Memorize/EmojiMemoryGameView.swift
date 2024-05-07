@@ -13,7 +13,10 @@ struct EmojiMemoryGameView: View {
     var body: some View {
         VStack {
             ScrollView {
-                CardsView(cards: viewModel.cards)
+                CardsView(cards: viewModel.cards) { card in
+                    viewModel.chooseCard(card)
+                }
+                .animation(.easeInOut, value: viewModel.cards)
             }
             Button("Shuffle") {
                 viewModel.shuffle()
