@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct CardsView: View {
-    let emojis: [String]
-    
-    @Binding var cardCount: Int
+    let cards: [MemorizeGame<String>.Card]
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
-            ForEach(0..<cardCount, id: \.self) { index in
-                CardView(content: emojis[index])
-                    .aspectRatio(2/3, contentMode: .fit)
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
+            ForEach(cards.indices, id: \.self) { index in
+                CardView(cards[index])
+                    .aspectRatio(1, contentMode: .fit)
+                    .padding(4)
             }
         }
         .foregroundColor(.orange)
@@ -24,5 +23,5 @@ struct CardsView: View {
 }
 
 #Preview {
-    CardsView(emojis: ["🧠", "👨🏻‍🦱", "⚙️"], cardCount: .constant(3))
+    CardsView(cards: [.init(content: "🧠")])
 }
