@@ -22,7 +22,7 @@ class EmojiMemorizeGame: ObservableObject {
         return model.cards
     }
     
-    func chooseCard(_ card: MemorizeGame<String>.Card) {
+    func choose(_ card: MemorizeGame<String>.Card) {
         model.choose(card)
     }
     

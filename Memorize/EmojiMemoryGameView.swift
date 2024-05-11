@@ -14,7 +14,7 @@ struct EmojiMemoryGameView: View {
         VStack {
             ScrollView {
                 CardsView(cards: viewModel.cards) { card in
-                    viewModel.chooseCard(card)
+                    viewModel.choose(card)
                 }
                 .animation(.easeInOut, value: viewModel.cards)
             }

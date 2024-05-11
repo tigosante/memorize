@@ -12,10 +12,10 @@ struct MemorizeGame<CardContent: Equatable> {
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = []
-        for pairIndex in 0..<max(2, numberOfPairsOfCards) {
+        for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content, id: "\(pairIndex + 1)a"))
-            cards.append(Card(content: content, id: "\(pairIndex + 2)b"))
+            cards.append(Card(content: content, id: "\(pairIndex + 1)b"))
         }
     }
     
